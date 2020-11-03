@@ -7,14 +7,17 @@ import Chat from '@material-ui/icons/Chat'
 import Storefront from '@material-ui/icons/Storefront'
 import VideoLibrary from '@material-ui/icons/VideoLibrary'
 import { ExpandMoreOutlined } from '@material-ui/icons'
+import { useStateValue } from '../stateProvider';
 
 
 function Sidebar() {
+    const [{ user }, dispatch] = useStateValue();
+
     return (
         <div className='sidebar'>
             <SidebarRow 
-                title='Alamin'
-                src='https://images.unsplash.com/photo-1592009309602-1dde752490ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+                title={user.displayName}
+                src={user.photoURL}
             />
             <SidebarRow 
                 title='COVID-19 Information Center'

@@ -1,4 +1,4 @@
-import { Avatar } from '@material-ui/core';
+import { Avatar, Button } from '@material-ui/core';
 import React from 'react'
 import ThumbUp from '@material-ui/icons/ThumbUp'
 import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline'
@@ -16,7 +16,7 @@ function Post({ profilePic, image, username, timestamp, post }) {
                     <Avatar src={profilePic} className="post__avatar" />
                     <div className="post__topInfo">
                         <h3>{username}</h3>
-                        <p>{timestamp}</p>
+                        <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
                     </div>
                 </div>
                 <div className="post__bottom">
@@ -27,22 +27,30 @@ function Post({ profilePic, image, username, timestamp, post }) {
                 </div>
                 <div className="post__options">
                     <div className="post__option">
-                        <ThumbUp/>
-                        <p>Like</p>
+                        <Button>
+                            <ThumbUp />
+                            <p>Like</p>
+                        </Button>
                     </div>
                     <div className="post__option">
-                        <ChatBubbleOutline/>
-                        <p>Comment</p>
+                        <Button>
+                            <ChatBubbleOutline />
+                            <p>Comment</p>
+                        </Button>
                     </div>
                     <div className="post__option">
-                        <NearMe/>
-                        <p>Share</p>
+                        <Button>
+                            <NearMe />
+                            <p>Share</p>
+                        </Button>
                     </div>
                     <div className="post__option">
-                        <AccountCircle/>
-                        <ExpandMoreOutlined/>
+                        <Button>
+                            <AccountCircle />
+                            <ExpandMoreOutlined />
+                        </Button>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     )
